@@ -12,8 +12,9 @@ export const GifExpertApp = () => {
 	return (
 		<>
 			<h1>GifExpert</h1>
-			<AddCategory/>
-			<button onClick={onAddCategory}>Agregar</button>
+			{/* la propiedad setcategories de addcategoryes va a recibir la propiedad setcategories de gifexpert */}
+			<AddCategory setCategories={setCategories} />
+			{/* <button onClick={onAddCategory}>Agregar</button> */}
 			<ol>
 				{categories.map((category) => {
 					return <li key={category}>{category}</li>;
