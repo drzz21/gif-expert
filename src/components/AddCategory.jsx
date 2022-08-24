@@ -14,6 +14,7 @@ export const AddCategory = ({ onNewCategory }) => {
 		// setInputValue('');
 		onNewCategory(inputValue.trim());
 		setInputValue('');
+
 	};
 
 	return (
