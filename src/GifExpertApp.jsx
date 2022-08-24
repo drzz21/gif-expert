@@ -3,8 +3,8 @@ import { AddCategory } from './components/AddCategory';
 
 export const GifExpertApp = () => {
 	const [categories, setCategories] = useState(['One Punch', 'Dragon Ball']);
-	const onAddCategory = () => {
-		setCategories(['Valorant', ...categories]);
+	const onAddCategory = (newCategory) => {
+		setCategories([newCategory, ...categories]);
 		// setCategories([...categories,'Valorant']);
 		//setCategories((cat) => [...cat, 'valorant']);
 	};
@@ -13,7 +13,11 @@ export const GifExpertApp = () => {
 		<>
 			<h1>GifExpert</h1>
 			{/* la propiedad setcategories de addcategoryes va a recibir la propiedad setcategories de gifexpert */}
-			<AddCategory setCategories={setCategories} />
+			<AddCategory
+				// onNewCategory={event=>onAddCategory(event)}
+				onNewCategory={onAddCategory}
+				// setCategories={setCategories}
+			/>
 			{/* <button onClick={onAddCategory}>Agregar</button> */}
 			<ol>
 				{categories.map((category) => {
