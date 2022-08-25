@@ -1,6 +1,8 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { getGifs } from '../helpers/getGifs';
+import { GifItem } from './GifItem';
+//se recomienda para llevar orden primero hacer las importaciones de react, luego las de terceros y luego las nuestras
 
 export const GifGrid = ({ category }) => {
 	const [images, setImages] = useState([]);
@@ -23,12 +25,15 @@ export const GifGrid = ({ category }) => {
 	return (
 		<>
 			<h3>{category}</h3>
-			<ul>
-        {/* destructuramos los paramas de img */}
-				{images.map(({ id, title, url }) => (
-					<li key={id}>{title}</li>
+			<div className="card-grid">
+				{/* destructuramos los paramas de img */}
+				{images.map((image) => (
+					<GifItem key={image.id}
+          // de este modo le mandamos todos los parametros de image
+          //y podemos destrucutrar para usar en el hijo solo los que queramos
+          {...image} />
 				))}
-			</ul>
+			</div>
 		</>
 	);
 };
