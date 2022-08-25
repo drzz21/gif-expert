@@ -1,26 +1,14 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
-import { getGifs } from '../helpers/getGifs';
+// import { getGifs } from '../helpers/getGifs';
+import { useFetchGifs } from '../hooks/useFetchGifs';
 import { GifItem } from './GifItem';
 //se recomienda para llevar orden primero hacer las importaciones de react, luego las de terceros y luego las nuestras
 
 export const GifGrid = ({ category }) => {
-	const [images, setImages] = useState([]);
 
-	const getImages = async () => {
-		const newImages = await getGifs(category);
-		setImages(newImages);
-	};
+  //destructuramos los campos que enviamos desde el hook
+  const {images,isLoading}=useFetchGifs(category);
 
-	//si se deja la dependencia vacia de este hook//
-	//esto le dice a react que esto solo se va a ejecutar la primera vez que se ejecuta el componente
-	useEffect(() => {
-		//no podemos uasr await aquí, podemos usar el then, ya que intermanete getgifs es un metodo promesa
-		// getGifs(category).then((newImages) => setImages(newImages));
-
-		//otra forma es como la pusimos ahora, ponemos el metodo async fuera del useeffect y de aqui lo llamamos
-		getImages();
-	}, []);
 
 	return (
 		<>
