@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { AddCategory } from './components/AddCategory';
-import { GifGrid } from './components/GifGrid';
+//con el archivo de barril redujimos estas exportaciones de dos archivos a una de un solo archivo
+import { AddCategory, GifGrid } from './components';
 
 export const GifExpertApp = () => {
 	const [categories, setCategories] = useState(['One Punch']);
