@@ -2,7 +2,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 export const AddCategory = ({ onNewCategory }) => {
-	const [inputValue, setInputValue] = useState('One Punch');
+	const [inputValue, setInputValue] = useState('');
 
 	const onInputChange = ({ target }) => {
 		setInputValue(target.value);
@@ -11,6 +11,7 @@ export const AddCategory = ({ onNewCategory }) => {
 	const onSubmit = (event) => {
 		event.preventDefault();
 		if (inputValue.trim().length < 1) return;
+
 		// setCategories((cat) => [inputValue, ...cat]);
 		// setInputValue('');
 		onNewCategory(inputValue.trim());
