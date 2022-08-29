@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 export const AddCategory = ({ onNewCategory }) => {
 	const [inputValue, setInputValue] = useState('One Punch');
@@ -32,4 +33,8 @@ export const AddCategory = ({ onNewCategory }) => {
 		</form>
 	);
 };
+//definimos la proptype obligatoria
+AddCategory.propTypes = {
+  onNewCategory:PropTypes.func.isRequired,
+}
 
