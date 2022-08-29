@@ -15,11 +15,10 @@ export const AddCategory = ({ onNewCategory }) => {
 		// setInputValue('');
 		onNewCategory(inputValue.trim());
 		setInputValue('');
-
 	};
 
 	return (
-		<form onSubmit={(event) => onSubmit(event)}>
+		<form aria-label="form" onSubmit={(event) => onSubmit(event)}>
 			<input
 				type="text"
 				placeholder="Buscar gifs..."
@@ -35,6 +34,6 @@ export const AddCategory = ({ onNewCategory }) => {
 };
 //definimos la proptype obligatoria
 AddCategory.propTypes = {
-  onNewCategory:PropTypes.func.isRequired,
-}
+	onNewCategory: PropTypes.func.isRequired,
+};
 
